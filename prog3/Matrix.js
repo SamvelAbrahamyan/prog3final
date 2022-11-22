@@ -1,12 +1,5 @@
 var side = 25;
-var types = [0, 1];
-var types2 = [2, 3, 4, 5];
 
-var xotArr = []; //խոտերի զանգված
-var eatArr = []; //խոտակերների զանգված
-var predatorArr = [];
-var personagre1Arr = [];
-var personagre2Arr = [];
 
 class Matrix {
     constructor(N, M) {
@@ -48,30 +41,7 @@ class Matrix {
         return a;
     }
 
-    setup(matrix) {
-        //Կրկնակի ցիկլը լցնում է օբյեկտներով խոտերի և խոտակերների զանգվածները
-        //հիմնվելով մատրիցի վրա
-        for (let y = 0; y < this.height; y++) {
-            for (let x = 0; x < this.width; x++) {
-                if (matrix[y][x] === 2) {
-                    let eatgrass = new Eatgrass(x, y);
-                    eatArr.push(eatgrass);
-                } else if (matrix[y][x] === 1) {
-                    let grass = new Grass(x, y);
-                    xotArr.push(grass);
-                } else if (matrix[y][x] === 5) {
-                    let personage2 = new Personage2(x, y);
-                    personagre2Arr.push(personage2);
-                } else if (matrix[y][x] === 4) {
-                    let personage1 = new Personage1(x, y);
-                    personagre1Arr.push(personage1);
-                } else if (matrix[y][x] === 3) {
-                    let predator = new Predator(x, y);
-                    predatorArr.push(predator);
-                }
-            }
-        }
-    }
+   
 
     draw(matrix) {
         //Գծում է աշխարհը, հիմվելով matrix-ի վրա
@@ -100,26 +70,7 @@ class Matrix {
         }
 
 
-        //յուրաքանչյուր խոտ փորձում է բազմանալ
-        for (var i in xotArr) {
-            xotArr[i].mul();
-        }
-
-        //յուրաքանչյուր խոտակեր փորձում է ուտել խոտ
-        for (var i in eatArr) {
-            eatArr[i].eat();
-        }
-        //յուրաքանչյուր խոտակեր փորձում է ուտել խոտ
-        for (var i in predatorArr) {
-            predatorArr[i].eat();
-        }//յուրաքանչյուր խոտակեր փորձում է ուտել խոտ
-        //յուրաքանչյուր խոտակեր փորձում է ուտել խոտ
-        for (var i in personagre1Arr) {
-            personagre1Arr[i].eat();
-        }
-        for (var i in personagre2Arr) {
-            personagre2Arr[i].eat();
-
-        }
+       
+       
     }
 }

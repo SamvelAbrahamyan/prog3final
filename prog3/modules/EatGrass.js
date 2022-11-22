@@ -1,4 +1,5 @@
-class Eatgrass extends LivingCreature {
+let LivingCreature = require('./LivingCreature')
+module.exports = class Eatgrass extends LivingCreature {
     constructor(x, y) {
         super(x,y)
         this.energy = 3;
@@ -34,6 +35,7 @@ class Eatgrass extends LivingCreature {
             }
         }
         return found;
+        
     }
 
 
